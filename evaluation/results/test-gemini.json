@@ -1,0 +1,2964 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-16T08:54:31.808174+00:00",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "corpus_collection": "recall_support",
+    "evidence_threshold": 0.55,
+    "case_count": 60,
+    "machine": {
+      "platform": "Linux-6.8.0-117-generic-aarch64-with-glibc2.41",
+      "machine": "aarch64",
+      "processor": "not reported by container",
+      "python": "3.12.14"
+    }
+  },
+  "metrics": {
+    "retrieval": {
+      "evaluated_cases": 52,
+      "precision_at_5": 0.2923,
+      "recall_at_5": 0.9904,
+      "mrr": 0.9119,
+      "latency_p50_ms": 76.44,
+      "latency_p95_ms": 85.15
+    },
+    "quality": {
+      "claim_level_faithfulness": 1.0,
+      "citation_coverage": 1.0,
+      "response_citation_coverage": 1.0,
+      "evaluated_claims": 48,
+      "faithfulness_method": "A claim passes when every cited chunk exists in the retrieved context and the local BGE embedding cosine similarity between the step and its cited text is at least 0.45."
+    },
+    "escalation": {
+      "accuracy": 0.5667,
+      "precision": 0.3158,
+      "recall": 1.0,
+      "f1": 0.48,
+      "confusion_matrix": {
+        "true_escalate": {
+          "predicted_escalate": 12,
+          "predicted_draft": 0
+        },
+        "true_draft": {
+          "predicted_escalate": 26,
+          "predicted_draft": 22
+        }
+      }
+    },
+    "warm_latency": {
+      "case_id": "TEST-001",
+      "warmup_requests": 1,
+      "measured_requests": 30,
+      "p50_ms": 709.0,
+      "p95_ms": 2704.0,
+      "min_ms": 425.0,
+      "max_ms": 3223.0,
+      "drafts": 15,
+      "escalations": 15,
+      "samples_ms": [
+        472.0,
+        450.0,
+        467.0,
+        454.0,
+        512.0,
+        463.0,
+        425.0,
+        508.0,
+        520.0,
+        531.0,
+        709.0,
+        576.0,
+        463.0,
+        464.0,
+        508.0,
+        3223.0,
+        2021.0,
+        2081.0,
+        1942.0,
+        1835.0,
+        1654.0,
+        1941.0,
+        2145.0,
+        1993.0,
+        1874.0,
+        1998.0,
+        2327.0,
+        1985.0,
+        2704.0,
+        2099.0
+      ]
+    }
+  },
+  "threshold_tuning": {
+    "selected": {
+      "threshold": 0.55,
+      "accuracy": 0.5667,
+      "escalation_f1": 0.48,
+      "escalation_recall": 1.0
+    },
+    "candidates": [
+      {
+        "threshold": 0.25,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.26,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.27,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.28,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.29,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.3,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.31,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.32,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.33,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.34,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.35,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.36,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.37,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.38,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.39,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.4,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.41,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.42,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.43,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.44,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.45,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.46,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.47,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.48,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.49,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.5,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.51,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.52,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.53,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.54,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.55,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.56,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.57,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.58,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.59,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.6,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.61,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.62,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.63,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.64,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.65,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.66,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.67,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.68,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.69,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.7,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.71,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.72,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.73,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.74,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.75,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.76,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.77,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.78,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.79,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.8,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.81,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.82,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.83,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.84,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.85,
+        "accuracy": 0.5667,
+        "escalation_f1": 0.48,
+        "escalation_recall": 1.0
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "TEST-001",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 107.07,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.89,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7512,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7383,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2282,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-002",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:001",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 72.07,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9322,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.5837,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7186,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2222,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-003",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-995:002",
+        "pgvector-filtering:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "postgresql-query-plans",
+        "pgvector-issue-995",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 67.25,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9997,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6538,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7801,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.8188,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2244,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-004",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:001",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:002",
+        "pgvector-issue-995:002",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 72.84,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9972,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6834,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7461,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7802,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2131,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-005",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:001",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 71.46,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9327,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7827,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7504,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2009,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-006",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:001",
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 73.04,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6616,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6803,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2011,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-007",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-995:000",
+        "pgvector-issue-734:001",
+        "postgresql-query-plans:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 76.87,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8528,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6661,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.8487,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2042,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-008",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-995:002",
+        "pgvector-issue-734:002",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 69.31,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9995,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.5775,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.761,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1884,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-009",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-issue-995:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:001",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 67.68,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9994,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6961,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1725,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-010",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:001",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:002",
+        "pgvector-issue-995:002",
+        "postgresql-query-plans:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 176.69,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9985,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8233,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7072,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1743,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-011",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:002",
+        "pgvector-issue-995:002",
+        "postgresql-query-plans:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 67.54,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9997,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8878,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6914,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7883,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2137,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-012",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:001",
+        "pgvector-issue-995:002",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 68.32,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9984,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7117,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8832,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7424,
+          "faithful": true
+        },
+        {
+          "step": 4,
+          "valid_citations": true,
+          "semantic_support": 0.6752,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2328,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-013",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:002",
+        "postgresql-monitoring:001",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "postgresql-monitoring",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 69.78,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.999,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7206,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8529,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.6461,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2151,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-014",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-995:002"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "postgresql-query-plans",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 69.86,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7491,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 1623,
+      "escalation_rationale": [
+        "The provider judged the supplied evidence insufficient for a safe answer.",
+        "No actionable resolution steps were produced.",
+        "Every actionable step must have a valid citation."
+      ]
+    },
+    {
+      "id": "TEST-015",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:002",
+        "pgvector-issue-995:002",
+        "postgresql-query-plans:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 77.23,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9995,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8579,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6655,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2072,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-016",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-734:002",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "pgvector-issue-734",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 68.76,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.25
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9966,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.763,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7305,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2083,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-017",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:002",
+        "pgvector-issue-995:002",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 69.67,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9991,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7641,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1785,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-018",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:000",
+        "pgvector-issue-995:001",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 71.26,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9966,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8776,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6151,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1621,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-019",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 70.39,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8024,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7838,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2227,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-020",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 73.96,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9982,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7734,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1590,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-021",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-995",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 69.7,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9995,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7267,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7806,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1816,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-022",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 74.25,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7425,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8356,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2521,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-023",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:000",
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 71.22,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9993,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7556,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8201,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1851,
+      "escalation_rationale": []
+    },
+    {
+      "id": "TEST-024",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 69.32,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7498,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 388,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-025",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:000",
+        "postgresql-query-plans:001",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 83.41,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7449,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 333,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-026",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:000",
+        "postgresql-vacuum:000",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 75.44,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6824,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 333,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-027",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-vacuum:000",
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:000",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 78.53,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7495,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 422,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-028",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:000",
+        "postgresql-monitoring:000",
+        "postgresql-vacuum:001",
+        "postgresql-query-plans:001",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 77.7,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7496,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 361,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-029",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-query-plans:001",
+        "postgresql-monitoring:000",
+        "postgresql-vacuum:000",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 78.7,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7487,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 506,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-030",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-query-plans:001",
+        "postgresql-monitoring:001",
+        "pgvector-filtering:000",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-monitoring",
+        "pgvector-filtering",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 78.7,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7462,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 336,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-031",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:001",
+        "postgresql-connections:000",
+        "postgresql-query-plans:001",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 79.01,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.75,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 415,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-032",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-connections:000",
+        "postgresql-vacuum:000",
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 78.58,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7496,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 341,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-033",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-connections:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:001",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 78.32,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7498,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 422,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-034",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:000",
+        "postgresql-connections:001",
+        "postgresql-query-plans:000",
+        "postgresql-vacuum:001",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 72.15,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7498,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 350,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-035",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:001",
+        "postgresql-connections:001",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 81.24,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7467,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 416,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-036",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:001",
+        "postgresql-connections:001",
+        "postgresql-vacuum:001",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 83.46,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.748,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 433,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-037",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000",
+        "postgresql-monitoring:001",
+        "postgresql-connections:001",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "postgresql-monitoring",
+        "postgresql-connections",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 76.44,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7494,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 344,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-038",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000",
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:000",
+        "pgvector-issue-995:002"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 79.12,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.749,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 432,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-039",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:001",
+        "postgresql-connections:001",
+        "postgresql-vacuum:001",
+        "postgresql-monitoring:001",
+        "pgvector-issue-734:002"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "postgresql-monitoring",
+        "pgvector-issue-734"
+      ],
+      "retrieval_latency_ms": 68.74,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7477,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 341,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-040",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:001",
+        "pgvector-indexing:001",
+        "pgvector-issue-995:002",
+        "pgvector-issue-734:002",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 78.05,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7474,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 425,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-041",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:001",
+        "pgvector-filtering:000",
+        "postgresql-vacuum:001",
+        "postgresql-connections:001",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 82.35,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6205,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 419,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-042",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000",
+        "postgresql-connections:001",
+        "postgresql-vacuum:000",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "postgresql-connections",
+        "postgresql-vacuum",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 71.14,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7418,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 331,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-043",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 80.02,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6831,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 331,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-044",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 77.58,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6055,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 329,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-045",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 80.43,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6785,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 503,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-046",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:000",
+        "postgresql-connections:000",
+        "postgresql-monitoring:001",
+        "postgresql-monitoring:000",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-monitoring",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 73.82,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7474,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 368,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-047",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:000",
+        "postgresql-connections:001",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 77.71,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.6796,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 318,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-048",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-query-plans:001",
+        "postgresql-connections:001",
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 83.51,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7493,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 323,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-049",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 69.47,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-050",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [
+        "postgresql-vacuum:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 80.62,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.4023,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 362,
+      "escalation_rationale": [
+        "The generation provider failed or returned invalid structured output."
+      ]
+    },
+    {
+      "id": "TEST-051",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 74.98,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-052",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 76.36,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-053",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 77.77,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-054",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 70.74,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-055",
+      "tags": [
+        "prompt-injection",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 81.74,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-056",
+      "tags": [
+        "prompt-injection",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 81.57,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ]
+    },
+    {
+      "id": "TEST-057",
+      "tags": [
+        "ambiguous",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-monitoring:000",
+        "postgresql-vacuum:001",
+        "postgresql-connections:000",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 85.15,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7491,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ]
+    },
+    {
+      "id": "TEST-058",
+      "tags": [
+        "ambiguous",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans",
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "postgresql-monitoring:000",
+        "pgvector-issue-734:002",
+        "postgresql-connections:001",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "postgresql-monitoring",
+        "pgvector-issue-734",
+        "postgresql-connections",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 85.96,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7249,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ]
+    },
+    {
+      "id": "TEST-059",
+      "tags": [
+        "contradictory",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "pgvector-indexing",
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 79.78,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 0.5,
+        "mrr": 0.5
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.4865,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ]
+    },
+    {
+      "id": "TEST-060",
+      "tags": [
+        "contradictory",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-connections:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 85.09,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7488,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ]
+    }
+  ]
+}

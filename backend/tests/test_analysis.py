@@ -15,6 +15,11 @@ class StubRetriever:
         return self.evidence
 
 
+class FailingRetriever:
+    def retrieve(self, query: str) -> list[RetrievedChunk]:
+        raise RuntimeError("vector store unavailable")
+
+
 class StubProvider(GenerationProvider):
     name = "mock"
     model = "stub"
@@ -141,6 +146,22 @@ async def test_provider_failure_returns_safe_escalation() -> None:
 
 
 @pytest.mark.asyncio
+async def test_retrieval_outage_returns_safe_escalation() -> None:
+    service = AnalysisService(
+        Settings(generation_provider="mock"),
+        retriever=FailingRetriever(),
+        provider_factory=lambda settings: StubProvider(fail=True),
+    )
+
+    result = await service.analyze(_request())
+
+    assert result.action == "escalate"
+    assert result.evidence == []
+    assert result.corpus_version == "unavailable"
+    assert "Retrieval is unavailable" in result.escalation_rationale[0]
+
+
+@pytest.mark.asyncio
 async def test_missing_required_signal_forces_escalation() -> None:
     provider = StubProvider(_answer_with_missing_signal())
     service = AnalysisService(
@@ -154,3 +175,26 @@ async def test_missing_required_signal_forces_escalation() -> None:
     assert result.action == "escalate"
     assert result.missing_signals == ["Database logs from the incident window"]
     assert any("missing" in reason for reason in result.escalation_rationale)
+
+
+@pytest.mark.asyncio
+async def test_explicitly_missing_incident_evidence_escalates_before_generation() -> None:
+    service = AnalysisService(
+        Settings(generation_provider="mock"),
+        retriever=StubRetriever([_evidence()]),
+        provider_factory=lambda settings: StubProvider(fail=True),
+    )
+    request = TicketAnalyzeRequest(
+        subject="Connection resets with missing telemetry",
+        description=(
+            "Clients reported resets, but no timestamps, PostgreSQL logs, or network "
+            "telemetry were retained from the incident window."
+        ),
+        product_area="PostgreSQL connectivity",
+    )
+
+    result = await service.analyze(request)
+
+    assert result.action == "escalate"
+    assert result.provider == "mock"
+    assert "Timestamp-aligned server and network telemetry" in result.missing_signals

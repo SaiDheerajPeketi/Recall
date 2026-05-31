@@ -191,3 +191,43 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** The local demo reports no time-saved result before a pilot collects it.
 - **Evidence:** The UI test inspects the feedback request and verifies that draft acceptance sends a null time-saved value.
 - **Revisit when:** The feedback flow includes an optional, clearly labeled time-saved input.
+
+## 2026-09-16 — Tune safety policy on development data only
+
+- **Context:** The evidence-strength cutoff affects both useful drafts and unsafe answers, so selecting it on final test outcomes would overfit the reported benchmark.
+- **Alternatives:** Keep an arbitrary cutoff; tune against all 80 cases; reserve a development split and lock the final test split.
+- **Choice:** Use 20 development cases to select a 0.55 evidence threshold, then report the unchanged policy on 60 locked test cases.
+- **Why:** It separates product-policy selection from the measurement used to describe generalization.
+- **Consequences:** The small development split makes the threshold provisional, and the complete threshold sweep remains in the raw run file.
+- **Evidence:** The selected threshold achieved 90% development accuracy and 100% unsupported-case recall; the locked test achieved 95% accuracy and 100% recall.
+- **Revisit when:** A larger independently labeled case set or pilot feedback supports recalibration.
+
+## 2026-09-16 — Treat explicit evidence gaps as a pre-generation safety signal
+
+- **Context:** Retrieval can find topically relevant guidance even when a case explicitly says that essential logs, timestamps, query plans, or reconciled measurements are unavailable.
+- **Alternatives:** Let the model decide every time; lower retrieval scores; detect a narrow set of explicit missing or conflicting signals before generation.
+- **Choice:** Escalate cases that explicitly report those diagnostic gaps before calling a model, while still returning the retrieved passages for operator context.
+- **Why:** Topical similarity cannot make absent incident evidence appear, and a deterministic guard is testable across providers.
+- **Consequences:** The policy intentionally favors conservative false escalations and must remain narrow enough not to block documented reversible diagnostics.
+- **Evidence:** Missing-evidence and contradiction cases reached 100% escalation recall on both evaluation splits, with three conservative false escalations on the locked test.
+- **Revisit when:** Real support cases show recurring false positives or identify additional high-risk missing signals.
+
+## 2026-09-16 — Pace the provider benchmark and publish rate-limit behavior
+
+- **Context:** An initial unpaced Gemini benchmark caused 26 generation failures, making provider quota behavior dominate quality results.
+- **Alternatives:** Hide the failed run; report it as model quality; preserve it as operational evidence and rerun with controlled spacing outside the latency timer.
+- **Choice:** Keep the unpaced raw result, add bounded retries, and use a 2.5-second inter-request delay for the reported quality run.
+- **Why:** Quality metrics should measure the pipeline under a viable request rate, while the burst failure remains important deployment evidence.
+- **Consequences:** The local test takes longer, and production still needs explicit rate limiting, backoff, and capacity planning.
+- **Evidence:** The controlled test completed 49 of 49 provider attempts and the 30-request latency run completed without failures.
+- **Revisit when:** Production quota, concurrency, or provider changes.
+
+## 2026-09-16 — Report Ollama as unavailable on the tested machine
+
+- **Context:** The optional containerized `qwen3:4b` provider loaded its manifest, but the Docker VM exposed 1.9 GiB and Ollama required 3.3 GiB.
+- **Alternatives:** Substitute a smaller unplanned model; report estimated performance; record the failed smoke test and give an exact rerun condition.
+- **Choice:** Keep `qwen3:4b` as configured, report no Ollama quality or latency result, and require at least 4 GiB of Docker memory before rerunning.
+- **Why:** A missing measurement is more honest than a comparison made with a different model or invented values.
+- **Consequences:** The current deliverable validates provider switching and fail-closed behavior but not local-model quality.
+- **Evidence:** The real Ollama request returned HTTP 500 with a model-memory requirement of 3.3 GiB; Recall converted it into an escalation.
+- **Revisit when:** The Docker VM memory allocation is increased or the project deliberately adopts a smaller named model.

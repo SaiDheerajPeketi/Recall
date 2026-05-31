@@ -7,6 +7,7 @@ from app.generation import (
     GenerationError,
     MockProvider,
     build_prompt,
+    create_provider,
     gemini_response_schema,
     parse_answer,
 )
@@ -57,6 +58,7 @@ def test_gemini_key_is_not_required_for_mock_configuration() -> None:
     settings = Settings(generation_provider="mock", gemini_api_key="")
 
     assert settings.generation_provider == "mock"
+    assert isinstance(create_provider(settings), MockProvider)
 
 
 def test_google_api_key_alias_is_supported(monkeypatch: pytest.MonkeyPatch) -> None:

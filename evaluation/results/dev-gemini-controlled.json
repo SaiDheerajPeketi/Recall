@@ -1,0 +1,1459 @@
+{
+  "metadata": {
+    "generated_at": "2026-09-16T09:15:37.661434+00:00",
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "corpus_collection": "recall_support",
+    "evidence_threshold": 0.55,
+    "request_delay_ms": 2500,
+    "case_count": 20,
+    "machine": {
+      "platform": "Linux-6.8.0-117-generic-aarch64-with-glibc2.41",
+      "machine": "aarch64",
+      "processor": "not reported by container",
+      "python": "3.12.14"
+    }
+  },
+  "metrics": {
+    "retrieval": {
+      "evaluated_cases": 18,
+      "precision_at_5": 0.3333,
+      "recall_at_5": 1.0,
+      "mrr": 0.9213,
+      "latency_p50_ms": 76.54,
+      "latency_p95_ms": 94.2
+    },
+    "quality": {
+      "claim_level_faithfulness": 1.0,
+      "citation_coverage": 1.0,
+      "response_citation_coverage": 1.0,
+      "evaluated_claims": 36,
+      "faithfulness_method": "A claim passes when every cited chunk exists in the retrieved context and the local BGE embedding cosine similarity between the step and its cited text is at least 0.45."
+    },
+    "provider_availability": {
+      "attempted_requests": 16,
+      "successful_responses": 16,
+      "provider_failures": 0,
+      "success_rate": 1.0
+    },
+    "escalation": {
+      "end_to_end": {
+        "accuracy": 0.9,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "f1": 0.8,
+        "confusion_matrix": {
+          "true_escalate": {
+            "predicted_escalate": 4,
+            "predicted_draft": 0
+          },
+          "true_draft": {
+            "predicted_escalate": 2,
+            "predicted_draft": 14
+          }
+        }
+      },
+      "provider_success_only": {
+        "accuracy": 0.9,
+        "precision": 0.6667,
+        "recall": 1.0,
+        "f1": 0.8,
+        "confusion_matrix": {
+          "true_escalate": {
+            "predicted_escalate": 4,
+            "predicted_draft": 0
+          },
+          "true_draft": {
+            "predicted_escalate": 2,
+            "predicted_draft": 14
+          }
+        }
+      }
+    },
+    "warm_latency": null
+  },
+  "threshold_tuning": {
+    "selected": {
+      "threshold": 0.55,
+      "accuracy": 0.9,
+      "escalation_f1": 0.8,
+      "escalation_recall": 1.0
+    },
+    "candidates": [
+      {
+        "threshold": 0.25,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.26,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.27,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.28,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.29,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.3,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.31,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.32,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.33,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.34,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.35,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.36,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.37,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.38,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.39,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.4,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.41,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.42,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.43,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.44,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.45,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.46,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.47,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.48,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.49,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.5,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.51,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.52,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.53,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.54,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.55,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.56,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.57,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.58,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.59,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.6,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.61,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.62,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.63,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.64,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.65,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.66,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.67,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.68,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.69,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.7,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.71,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.72,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.73,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.74,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.75,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.76,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.77,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.78,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.79,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.8,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.81,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.82,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.83,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.84,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      },
+      {
+        "threshold": 0.85,
+        "accuracy": 0.9,
+        "escalation_f1": 0.8,
+        "escalation_recall": 1.0
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "DEV-001",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-filtering:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 108.16,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9327,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6584,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.689,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2048,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-002",
+      "tags": [
+        "known-answer",
+        "filtering"
+      ],
+      "expected_sources": [
+        "pgvector-filtering"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-995:000",
+        "pgvector-issue-734:002",
+        "pgvector-filtering:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 72.63,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9995,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6465,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7073,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7705,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2082,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-003",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 94.2,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9991,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8586,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8679,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2019,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-004",
+      "tags": [
+        "known-answer",
+        "indexing"
+      ],
+      "expected_sources": [
+        "pgvector-indexing"
+      ],
+      "retrieved_chunks": [
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-995:002",
+        "pgvector-issue-734:002",
+        "pgvector-indexing:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "pgvector-indexing"
+      ],
+      "retrieval_latency_ms": 84.53,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9994,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7963,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7697,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.6484,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2328,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-005",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:000",
+        "pgvector-issue-995:000",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "pgvector-issue-995",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 72.56,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.3333333333333333
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7465,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 1640,
+      "escalation_rationale": [
+        "The provider judged the supplied evidence insufficient for a safe answer.",
+        "No actionable resolution steps were produced.",
+        "Every actionable step must have a valid citation.",
+        "Required diagnostic evidence is missing from the case."
+      ],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-006",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-734"
+      ],
+      "retrieved_chunks": [
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-995:002",
+        "pgvector-issue-734:002",
+        "postgresql-query-plans:001"
+      ],
+      "retrieved_sources": [
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-995",
+        "pgvector-issue-734",
+        "postgresql-query-plans"
+      ],
+      "retrieval_latency_ms": 76.54,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 0.25
+      },
+      "expected_action": "draft",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7483,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 1320,
+      "escalation_rationale": [
+        "The provider judged the supplied evidence insufficient for a safe answer.",
+        "No actionable resolution steps were produced.",
+        "Every actionable step must have a valid citation.",
+        "Required diagnostic evidence is missing from the case."
+      ],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-007",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 71.1,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7815,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7766,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1764,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-008",
+      "tags": [
+        "known-answer",
+        "resolved-issue"
+      ],
+      "expected_sources": [
+        "pgvector-issue-995"
+      ],
+      "retrieved_chunks": [
+        "pgvector-issue-995:002",
+        "pgvector-indexing:001",
+        "pgvector-filtering:000",
+        "postgresql-query-plans:001",
+        "pgvector-issue-995:000"
+      ],
+      "retrieved_sources": [
+        "pgvector-issue-995",
+        "pgvector-indexing",
+        "pgvector-filtering",
+        "postgresql-query-plans",
+        "pgvector-issue-995"
+      ],
+      "retrieval_latency_ms": 83.87,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9993,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7634,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7766,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1683,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-009",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:000",
+        "postgresql-query-plans:001",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 79.68,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9993,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8549,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8271,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7138,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2067,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-010",
+      "tags": [
+        "known-answer",
+        "connections"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:000",
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 81.07,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9993,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8479,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7907,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7609,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1771,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-011",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:001",
+        "postgresql-query-plans:001",
+        "postgresql-connections:000",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-query-plans",
+        "postgresql-connections",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 73.3,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9999,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8396,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.8053,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1889,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-012",
+      "tags": [
+        "known-answer",
+        "monitoring"
+      ],
+      "expected_sources": [
+        "postgresql-monitoring"
+      ],
+      "retrieved_chunks": [
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000",
+        "postgresql-connections:001",
+        "pgvector-filtering:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "pgvector-filtering"
+      ],
+      "retrieval_latency_ms": 69.54,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9998,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8788,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7762,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1860,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-013",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000",
+        "pgvector-issue-734:002",
+        "pgvector-indexing:001",
+        "postgresql-monitoring:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "pgvector-issue-734",
+        "pgvector-indexing",
+        "postgresql-monitoring"
+      ],
+      "retrieval_latency_ms": 80.46,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9993,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8362,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7208,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.6738,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 2349,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-014",
+      "tags": [
+        "known-answer",
+        "plans"
+      ],
+      "expected_sources": [
+        "postgresql-query-plans"
+      ],
+      "retrieved_chunks": [
+        "postgresql-query-plans:000",
+        "pgvector-filtering:000",
+        "pgvector-indexing:000",
+        "pgvector-issue-734:002",
+        "postgresql-connections:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-query-plans",
+        "pgvector-filtering",
+        "pgvector-indexing",
+        "pgvector-issue-734",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 84.68,
+      "retrieval": {
+        "precision_at_5": 0.2,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9979,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.8336,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.5525,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.6085,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1836,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-015",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "pgvector-issue-995:000",
+        "postgresql-query-plans:001",
+        "postgresql-connections:001",
+        "postgresql-vacuum:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "pgvector-issue-995",
+        "postgresql-query-plans",
+        "postgresql-connections",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 75.17,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9997,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.7924,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.6765,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.7338,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1956,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-016",
+      "tags": [
+        "known-answer",
+        "vacuum"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:000",
+        "postgresql-connections:000",
+        "postgresql-monitoring:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:001"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-query-plans",
+        "postgresql-vacuum"
+      ],
+      "retrieval_latency_ms": 76.35,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "draft",
+      "predicted_action": "draft",
+      "evidence_strength": 0.9973,
+      "hard_escalation": false,
+      "citation_coverage": 1.0,
+      "claims": [
+        {
+          "step": 1,
+          "valid_citations": true,
+          "semantic_support": 0.6598,
+          "faithful": true
+        },
+        {
+          "step": 2,
+          "valid_citations": true,
+          "semantic_support": 0.7569,
+          "faithful": true
+        },
+        {
+          "step": 3,
+          "valid_citations": true,
+          "semantic_support": 0.8865,
+          "faithful": true
+        }
+      ],
+      "analysis_latency_ms": 1905,
+      "escalation_rationale": [],
+      "provider_failure": false,
+      "provider_attempted": true
+    },
+    {
+      "id": "DEV-017",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 76.29,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ],
+      "provider_failure": false,
+      "provider_attempted": false
+    },
+    {
+      "id": "DEV-018",
+      "tags": [
+        "irrelevant",
+        "unsupported"
+      ],
+      "expected_sources": [],
+      "retrieved_chunks": [],
+      "retrieved_sources": [],
+      "retrieval_latency_ms": 75.27,
+      "retrieval": null,
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.0,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "No passage cleared the retrieval relevance floor."
+      ],
+      "provider_failure": false,
+      "provider_attempted": false
+    },
+    {
+      "id": "DEV-019",
+      "tags": [
+        "ambiguous",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "postgresql-connections"
+      ],
+      "retrieved_chunks": [
+        "postgresql-connections:001",
+        "postgresql-monitoring:001",
+        "postgresql-vacuum:001",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-connections",
+        "postgresql-monitoring",
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 90.99,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.7427,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ],
+      "provider_failure": false,
+      "provider_attempted": false
+    },
+    {
+      "id": "DEV-020",
+      "tags": [
+        "contradictory",
+        "missing-signals"
+      ],
+      "expected_sources": [
+        "postgresql-vacuum"
+      ],
+      "retrieved_chunks": [
+        "postgresql-vacuum:001",
+        "postgresql-connections:001",
+        "postgresql-query-plans:001",
+        "postgresql-vacuum:000",
+        "postgresql-connections:000"
+      ],
+      "retrieved_sources": [
+        "postgresql-vacuum",
+        "postgresql-connections",
+        "postgresql-query-plans",
+        "postgresql-vacuum",
+        "postgresql-connections"
+      ],
+      "retrieval_latency_ms": 82.72,
+      "retrieval": {
+        "precision_at_5": 0.4,
+        "recall_at_5": 1.0,
+        "mrr": 1.0
+      },
+      "expected_action": "escalate",
+      "predicted_action": "escalate",
+      "evidence_strength": 0.748,
+      "hard_escalation": true,
+      "citation_coverage": 0.0,
+      "claims": [],
+      "analysis_latency_ms": 0,
+      "escalation_rationale": [
+        "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+      ],
+      "provider_failure": false,
+      "provider_attempted": false
+    }
+  ]
+}

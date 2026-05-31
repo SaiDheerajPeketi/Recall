@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import re
 import time
 import uuid
 from collections.abc import Callable
@@ -73,6 +74,21 @@ class AnalysisService:
                 summary="The corpus did not return relevant support evidence for this case.",
                 rationale=["No passage cleared the retrieval relevance floor."],
                 missing_signals=["Relevant documentation or a matching resolved incident"],
+            )
+
+        explicit_gaps = self._explicit_case_gaps(request)
+        if explicit_gaps:
+            return self._escalation(
+                analysis_id=analysis_id,
+                started=started,
+                evidence=evidence,
+                provider_name=provider_name,
+                provider_model=provider_model,
+                summary="The case explicitly reports missing or conflicting diagnostic evidence.",
+                rationale=[
+                    "Required incident evidence is absent or internally inconsistent; a safe resolution cannot be drafted."
+                ],
+                missing_signals=explicit_gaps,
             )
 
         try:
@@ -261,3 +277,26 @@ class AnalysisService:
         if self.settings.generation_provider == "ollama":
             return self.settings.ollama_model
         return "deterministic-rules-v1"
+
+    @staticmethod
+    def _explicit_case_gaps(request: TicketAnalyzeRequest) -> list[str]:
+        text = f"{request.subject}\n{request.description}".lower()
+        checks = [
+            (
+                r"\bno\b.{0,120}\b(logs?|timestamps?|telemetry|packet captures?|network metrics?)\b",
+                "Timestamp-aligned server and network telemetry",
+            ),
+            (
+                r"\bno\b.{0,120}\b(sql text|query text|execution plan|parameters?|wait events?|statistics)\b",
+                "The affected query and execution diagnostics",
+            ),
+            (
+                r"\b(conflicting|conflicts|cannot reconcile|different (?:time )?windows)\b",
+                "Reconciled measurements from the same incident window",
+            ),
+            (
+                r"\b(no timestamp alignment|raw (?:sample|evidence).{0,30}(?:missing|unavailable|not available))\b",
+                "Raw measurements with a shared timestamp window",
+            ),
+        ]
+        return [label for pattern, label in checks if re.search(pattern, text)]
