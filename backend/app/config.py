@@ -21,7 +21,8 @@ class Settings(BaseSettings):
     evidence_limit: int = 5
     minimum_rerank_score: float = 0.01
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash-lite"
+    google_api_key: str = ""
+    gemini_model: str = "gemini-3.5-flash-lite"
     ollama_base_url: str = "http://host.docker.internal:11434"
     ollama_model: str = "qwen3:4b"
 
@@ -29,7 +30,12 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         extra="ignore",
+        populate_by_name=True,
     )
+
+    @property
+    def resolved_gemini_api_key(self) -> str:
+        return self.gemini_api_key or self.google_api_key
 
 
 @lru_cache

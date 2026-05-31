@@ -32,7 +32,9 @@ async def health() -> dict[str, object]:
         "postgres": "unavailable",
         "qdrant": "unavailable",
         "corpus": "not_indexed",
-        "provider": "configured" if settings.generation_provider == "mock" or settings.gemini_api_key else "not_configured",
+        "provider": "configured"
+        if settings.generation_provider == "mock" or settings.resolved_gemini_api_key
+        else "not_configured",
     }
 
     try:

@@ -91,3 +91,33 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** A slightly lower-ranked document can displace a second passage from the leading source.
 - **Evidence:** The selection rule is deterministic and covered by a focused test.
 - **Revisit when:** Claim-level evaluation shows adjacent same-source passages are systematically necessary.
+
+## 2026-09-16 — Put every generation provider behind one strict contract
+
+- **Context:** The local demo needs Gemini by default, an Ollama option, and deterministic tests without making confidence or citation behavior provider-specific.
+- **Alternatives:** Implement separate response shapes; expose raw provider text; validate all providers against one schema.
+- **Choice:** Gemini, Ollama, and mock providers return the same strict object: category, summary, cited steps, missing signals, conflicts, and an answerable flag.
+- **Why:** Downstream safety checks and the interface can be provider-independent, and malformed output has one fail-closed path.
+- **Consequences:** Provider features that do not fit the contract are ignored, and schema changes must be coordinated across all adapters.
+- **Evidence:** Tests cover deterministic cited output, prompt isolation, and rejection of malformed JSON.
+- **Revisit when:** A provider-independent field is demonstrably missing from real support reviews.
+
+## 2026-09-16 — Send only selected evidence to generation
+
+- **Context:** The ticket and corpus can contain prompt-injection text, and sending excess context makes unsupported synthesis harder to detect.
+- **Alternatives:** Send the full corpus; send raw retrieval candidates; send only the five selected passages with explicit untrusted delimiters.
+- **Choice:** Build the provider request from the ticket and final evidence set, label both as untrusted, require retrieved chunk IDs as citations, and request low-temperature structured JSON.
+- **Why:** It narrows the model's evidence boundary and makes citation validation deterministic.
+- **Consequences:** Missing retrieval evidence cannot be repaired by model memory; the case must escalate instead.
+- **Evidence:** The prompt contract is inspected in tests and downstream validation rejects unknown citations.
+- **Revisit when:** A measured failure requires a larger context window without reducing faithfulness.
+
+## 2026-09-16 — Move the default from Gemini 2.5 Flash-Lite to 3.5 Flash-Lite
+
+- **Context:** The original plan selected `gemini-2.5-flash-lite`, but a live API smoke test returned `404 NOT_FOUND` for a new user and directed the client to `gemini-3.5-flash-lite`.
+- **Alternatives:** Keep a default that cannot run for this project; use the larger Flash model; adopt the current stable Flash-Lite model while leaving configuration open.
+- **Choice:** Default to `gemini-3.5-flash-lite` and retain `GEMINI_MODEL` as an explicit override.
+- **Why:** It preserves the intended low-latency, cost-conscious model class and is currently available with structured-output support.
+- **Consequences:** The implementation differs from the original model identifier, and evaluation results must state the exact model used rather than the family name alone.
+- **Evidence:** The live 2.5 request failed with the provider's migration message; Google's current model documentation lists 3.5 Flash-Lite as stable and structured-output capable.
+- **Revisit when:** Google deprecates the model, the evaluation gate fails, or another supported model provides materially better faithfulness within the latency target.
