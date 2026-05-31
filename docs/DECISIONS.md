@@ -271,3 +271,13 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** The local voice is less expressive than a directed studio recording, and the music is intentionally minimal.
 - **Evidence:** The encoded file is 1920×1080 H.264 with AAC audio, 59.7 seconds long, approximately -19.0 LUFS integrated with a -2.6 dBFS true peak, and contains no active-word caption treatment.
 - **Revisit when:** A human voice recording or commissioned music becomes available.
+
+## 2026-09-16 — Keep portfolio claims tied to reproducible evidence
+
+- **Context:** Resume and public-update copy must be concise, but compression can erase important limits or turn evaluation results into broader product claims.
+- **Alternatives:** Use aspirational marketing language; omit metrics; describe the built system with the locked-test numbers and local-only boundary attached.
+- **Choice:** Lead with the retrieval, citation, and safe-escalation design; include only reproduced measurements; state that deployment and pilot evidence are still pending.
+- **Why:** A short project description should remain defensible when an interviewer asks how each claim was measured.
+- **Consequences:** The copy is more specific and less grandiose than a conventional launch announcement.
+- **Evidence:** The portfolio text cites the 60-case locked split, committed raw results, 100% citation coverage, 100% unsupported-case escalation recall, and 2.216-second warm p95 latency.
+- **Revisit when:** A public deployment, independent evaluation, or user pilot adds stronger evidence.

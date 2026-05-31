@@ -225,6 +225,8 @@ deploy/      Caddy ingress and future cloud environment template
 
 Every consequential product or engineering choice is recorded in [docs/DECISIONS.md](docs/DECISIONS.md), including alternatives, evidence, consequences, and revisit conditions.
 
+Resume-ready copy and four build-in-public drafts are collected in [docs/PORTFOLIO.md](docs/PORTFOLIO.md).
+
 ## Limitations and deployment status
 
 - No public live demo is deployed yet.
