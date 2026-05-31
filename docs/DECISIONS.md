@@ -241,3 +241,13 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** The README is less promotional, but the claims are reproducible and defensible in an interview.
 - **Evidence:** The README links the raw run files, reports the failed Ollama attempt, and separates automated citation support from human factuality review.
 - **Revisit when:** A public deployment, independent labeling exercise, or real user pilot produces new evidence.
+
+## 2026-09-16 — Use a single-host cloud overlay as a handoff artifact
+
+- **Context:** The project must be deployable later without creating infrastructure now, and the local Compose file intentionally publishes development ports.
+- **Alternatives:** Add provider-specific infrastructure as code; leave only the local stack; supply a portable Compose overlay with an ingress boundary.
+- **Choice:** Add a single-host overlay that removes public data-service ports, places Caddy in front of the web container, and adds resource limits, health checks, restart policies, named volumes, and required domain/database settings.
+- **Why:** It is cloud-neutral, locally validatable, and small enough for another person to understand before choosing a provider.
+- **Consequences:** It does not provide high availability, managed backups, identity, secret rotation, or autoscaling; those remain explicit deployment tasks.
+- **Evidence:** The base and overlay merge successfully with placeholder values, while only Caddy retains host port bindings in the rendered configuration.
+- **Revisit when:** A target cloud, traffic profile, recovery objective, or compliance boundary is selected.

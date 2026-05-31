@@ -214,7 +214,7 @@ backend/     FastAPI, retrieval, generation, safety gates, and tests
 data/        pinned source manifest and public source extracts
 evaluation/  80 cases, evaluator, report, and raw measurements
 docs/        product boundaries, interface, design, and decision log
-deploy/      deployment assets and future cloud overlay
+deploy/      Caddy ingress and future cloud environment template
 ```
 
 Every consequential product or engineering choice is recorded in [docs/DECISIONS.md](docs/DECISIONS.md), including alternatives, evidence, consequences, and revisit conditions.
@@ -228,3 +228,17 @@ Every consequential product or engineering choice is recorded in [docs/DECISIONS
 - Provider availability and latency vary by quota, region, and time.
 
 The application is prepared for local validation today. Production secrets, infrastructure, access controls, monitoring, backups, and a public domain remain deployment work for the repository owner.
+
+## Future cloud deployment
+
+The repository includes `compose.cloud.yaml` for a later single-host deployment. It keeps data services private, exposes only Caddy on ports 80 and 443, adds production restart policies, health checks, named volumes, resource limits, and domain/secret placeholders.
+
+Validate the merged configuration without deploying:
+
+```bash
+cp deploy/cloud.env.example .env.cloud
+# Replace the placeholders locally. The completed file is ignored by Git.
+docker compose --env-file .env.cloud -f compose.yaml -f compose.cloud.yaml config --quiet
+```
+
+See [deploy/README.md](deploy/README.md) for the future-host checklist. Cloud provisioning, DNS, secrets, backups, authentication, monitoring, and the public URL are deliberately deferred.

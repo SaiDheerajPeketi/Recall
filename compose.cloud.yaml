@@ -1,0 +1,143 @@
+name: recall
+
+services:
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the cloud environment}
+    ports: !reset []
+    expose:
+      - "5432"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1G
+        reservations:
+          memory: 256M
+
+  qdrant:
+    ports: !reset []
+    expose:
+      - "6333"
+      - "6334"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333'"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 2G
+        reservations:
+          memory: 512M
+
+  bootstrap:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the cloud environment}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    deploy:
+      resources:
+        limits:
+          cpus: "1.50"
+          memory: 2G
+
+  api:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the cloud environment}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    ports: !reset []
+    expose:
+      - "8000"
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: "2.00"
+          memory: 3G
+        reservations:
+          memory: 768M
+
+  web:
+    ports: !reset []
+    expose:
+      - "80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ >/dev/null"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 256M
+
+  caddy:
+    image: caddy:2.10.2-alpine
+    environment:
+      RECALL_DOMAIN: ${RECALL_DOMAIN:?Set RECALL_DOMAIN in the cloud environment}
+      CADDY_ACME_EMAIL: ${CADDY_ACME_EMAIL:?Set CADDY_ACME_EMAIL in the cloud environment}
+    depends_on:
+      web:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:2019/config/ >/dev/null"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 256M
+
+  ollama:
+    ports: !reset []
+    expose:
+      - "11434"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+    deploy:
+      resources:
+        limits:
+          cpus: "4.00"
+          memory: 6G
+
+  evaluator:
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the cloud environment}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    restart: "no"
+    deploy:
+      resources:
+        limits:
+          cpus: "2.00"
+          memory: 3G
+
+volumes:
+  caddy_data:
+  caddy_config:
