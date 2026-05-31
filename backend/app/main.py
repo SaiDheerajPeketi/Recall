@@ -5,13 +5,17 @@ import httpx
 from fastapi import FastAPI
 from sqlalchemy import text
 
+from app.analysis import AnalysisService
 from app.config import get_settings
 from app.database import create_engine
+from app.routes import router
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+    settings = get_settings()
     app.state.database = create_engine()
+    app.state.analysis_service = AnalysisService(settings)
     yield
     await app.state.database.dispose()
 
@@ -22,6 +26,7 @@ app = FastAPI(
     description="Evidence-backed support-case analysis.",
     lifespan=lifespan,
 )
+app.include_router(router)
 
 
 @app.get("/api/v1/health")
@@ -32,10 +37,13 @@ async def health() -> dict[str, object]:
         "postgres": "unavailable",
         "qdrant": "unavailable",
         "corpus": "not_indexed",
-        "provider": "configured"
-        if settings.generation_provider == "mock" or settings.resolved_gemini_api_key
-        else "not_configured",
+        "provider": "not_configured",
     }
+
+    if settings.generation_provider == "mock":
+        checks["provider"] = "ready"
+    elif settings.generation_provider == "gemini" and settings.resolved_gemini_api_key:
+        checks["provider"] = "ready"
 
     try:
         async with app.state.database.connect() as connection:
@@ -56,8 +64,15 @@ async def health() -> dict[str, object]:
                     points_count = collection.json().get("result", {}).get("points_count", 0)
                     if points_count > 0:
                         checks["corpus"] = "ready"
+            if settings.generation_provider == "ollama":
+                provider = await client.get(f"{settings.ollama_base_url.rstrip('/')}/api/tags")
+                if provider.is_success:
+                    checks["provider"] = "ready"
     except httpx.HTTPError:
         pass
 
-    ready = checks["postgres"] == "ready" and checks["qdrant"] == "ready"
+    ready = all(
+        checks[name] == "ready"
+        for name in ("api", "postgres", "qdrant", "corpus", "provider")
+    )
     return {"status": "ready" if ready else "degraded", "checks": checks}

@@ -121,3 +121,23 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** The implementation differs from the original model identifier, and evaluation results must state the exact model used rather than the family name alone.
 - **Evidence:** The live 2.5 request failed with the provider's migration message; Google's current model documentation lists 3.5 Flash-Lite as stable and structured-output capable.
 - **Revisit when:** Google deprecates the model, the evaluation gate fails, or another supported model provides materially better faithfulness within the latency target.
+
+## 2026-09-16 — Make confidence an inspectable evidence score
+
+- **Context:** A single opaque confidence number can be mistaken for a calibrated probability and cannot explain why a case was escalated.
+- **Alternatives:** Show the model's self-reported confidence; expose no score; calculate evidence strength from observable pipeline signals.
+- **Choice:** Combine reranker relevance, source diversity, dense/sparse agreement, and valid citation coverage into a bounded evidence-strength score. Show every factor and compare the total with a development-tuned threshold.
+- **Why:** Each factor can be measured, tested, and explained without claiming a probability of correctness.
+- **Consequences:** The weighting is a product policy and requires evaluation; a strong score still cannot override conflicts, malformed output, or provider failure.
+- **Evidence:** Analysis tests cover valid drafts, unknown citations, weak evidence, and provider failures.
+- **Revisit when:** Development or pilot data supports a better-calibrated scoring model.
+
+## 2026-09-16 — Store feedback separately from case content
+
+- **Context:** Product learning needs outcome signals, but storing submitted case text would violate the MVP's data-minimization boundary.
+- **Alternatives:** Store the full analysis; store redacted tickets; store only an opaque analysis ID and explicit feedback fields.
+- **Choice:** Persist helpfulness, acceptance, optional correction or comment, and estimated minutes saved against a random analysis ID.
+- **Why:** It supports quality review without reconstructing the original customer case.
+- **Consequences:** Feedback cannot be replayed automatically against the original input.
+- **Evidence:** The feedback table has no subject, description, or ticket-text column, and this invariant is tested.
+- **Revisit when:** A reviewed retention design provides encryption, access control, deletion, and a legitimate need for case-level replay.

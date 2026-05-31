@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     rerank_candidates: int = 20
     evidence_limit: int = 5
     minimum_rerank_score: float = 0.01
+    evidence_threshold: float = 0.55
     gemini_api_key: str = ""
     google_api_key: str = ""
     gemini_model: str = "gemini-3.5-flash-lite"
