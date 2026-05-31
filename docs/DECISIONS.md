@@ -141,3 +141,53 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** Feedback cannot be replayed automatically against the original input.
 - **Evidence:** The feedback table has no subject, description, or ticket-text column, and this invariant is tested.
 - **Revisit when:** A reviewed retention design provides encryption, access control, deletion, and a legitimate need for case-level replay.
+
+## 2026-09-16 — Frame Recall as a support copilot
+
+- **Context:** The product helps an operator investigate and decide; it does not autonomously resolve or close customer incidents.
+- **Alternatives:** Present Recall as an answer bot; present it as a search console; describe it as a support copilot.
+- **Choice:** Use the product line “Support copilot” and keep a human decision point on both drafts and escalations.
+- **Why:** The label matches the actual authority boundary and avoids implying that generated steps are executed automatically.
+- **Consequences:** The interface emphasizes evidence and review over conversational novelty.
+- **Evidence:** The workbench exposes sources, confidence factors, escalation reasons, and explicit feedback controls beside every result.
+- **Revisit when:** Recall can safely execute a narrowly defined remediation with audited approval.
+
+## 2026-09-16 — Run New case through the complete analysis pipeline
+
+- **Context:** A prominent New case action would be misleading if it opened a static mock or bypassed retrieval.
+- **Alternatives:** Use a prerecorded example; build a separate form page; open a composer inside the workbench and submit to the public analysis API.
+- **Choice:** New case clears the selected demo, accepts subject, description, and optional product area, then calls `/api/v1/tickets/analyze` and renders the returned retrieval evidence, cited draft, or escalation in place.
+- **Why:** The primary workflow demonstrates the real RAG behavior while preserving the operator’s context.
+- **Consequences:** Provider and retrieval failures must have visible, recoverable interface states.
+- **Evidence:** Component tests verify blank-case creation and a real analysis request producing cited evidence.
+- **Revisit when:** Case creation needs attachments, identity, or integration with an external ticket system.
+
+## 2026-09-16 — Use an evidence-dense escalation console
+
+- **Context:** Operators must compare a case, a proposed resolution, and the supporting passages without losing the queue.
+- **Alternatives:** Chat-first layout; a dashboard of summary cards; a three-pane escalation console.
+- **Choice:** Use the approved escalation-console direction: queue at left, case and decision in the center, evidence ledger at right, with the primary workflow restacked for narrow screens.
+- **Why:** It keeps provenance adjacent to each decision and makes weak-evidence handoff a first-class state.
+- **Consequences:** The desktop view is intentionally dense; mobile prioritizes the active case before secondary queue context.
+- **Evidence:** The implementation uses semantic text, tables, landmarks, keyboard focus, reduced-motion support, and an automated accessibility scan rather than decorative raster UI assets.
+- **Revisit when:** Usability testing shows operators need a different default information hierarchy.
+
+## 2026-09-16 — Bind analysis results to the submitted case
+
+- **Context:** Generation can take several seconds, during which an operator may select another queue item or begin a new case.
+- **Alternatives:** Disable all navigation; allow late responses to render; cancel the request and reject results whose request version is no longer active.
+- **Choice:** Abort the previous browser request on case changes and guard every response with a monotonically increasing request version.
+- **Why:** A resolution drafted from one incident must never appear under another incident, even if the network completes an already-cancelled request.
+- **Consequences:** Leaving a case discards any in-progress result and the operator must analyze it again if they return.
+- **Evidence:** A component test resolves an older request after New case is selected and verifies that its draft is not rendered.
+- **Revisit when:** Per-case background jobs and an authenticated result inbox replace synchronous browser requests.
+
+## 2026-09-16 — Never infer outcome metrics from a button click
+
+- **Context:** Draft acceptance is a useful feedback signal, but it does not prove a fixed amount of time was saved.
+- **Alternatives:** Store a default estimate; omit time saved; ask the operator for an observed estimate.
+- **Choice:** Record acceptance without `minutes_saved` unless a person explicitly supplies that measurement.
+- **Why:** Portfolio evaluation must use real observations rather than a convenient fabricated number.
+- **Consequences:** The local demo reports no time-saved result before a pilot collects it.
+- **Evidence:** The UI test inspects the feedback request and verifies that draft acceptance sends a null time-saved value.
+- **Revisit when:** The feedback flow includes an optional, clearly labeled time-saved input.
