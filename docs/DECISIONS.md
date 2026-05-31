@@ -231,3 +231,13 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** The current deliverable validates provider switching and fail-closed behavior but not local-model quality.
 - **Evidence:** The real Ollama request returned HTTP 500 with a model-memory requirement of 3.3 GiB; Recall converted it into an escalation.
 - **Revisit when:** The Docker VM memory allocation is increased or the project deliberately adopts a smaller named model.
+
+## 2026-09-16 — Put verification limits beside the headline results
+
+- **Context:** A polished portfolio README can make a local prototype, project-authored benchmark, or automated faithfulness check look stronger than the evidence supports.
+- **Alternatives:** Put caveats only in a separate report; omit metrics; present results and their boundaries together.
+- **Choice:** Lead with the local-only deployment status, place methodology limits directly below the benchmark, and state that no pilot or time-saved result exists.
+- **Why:** A reader should be able to distinguish measured behavior from planned deployment and future validation without hunting through the repository.
+- **Consequences:** The README is less promotional, but the claims are reproducible and defensible in an interview.
+- **Evidence:** The README links the raw run files, reports the failed Ollama attempt, and separates automated citation support from human factuality review.
+- **Revisit when:** A public deployment, independent labeling exercise, or real user pilot produces new evidence.
