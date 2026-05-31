@@ -251,3 +251,23 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** It does not provide high availability, managed backups, identity, secret rotation, or autoscaling; those remain explicit deployment tasks.
 - **Evidence:** The base and overlay merge successfully with placeholder values, while only Caddy retains host port bindings in the rendered configuration.
 - **Revisit when:** A target cloud, traffic profile, recovery objective, or compliance boundary is selected.
+
+## 2026-09-16 — Demonstrate the real local workflow in the walkthrough
+
+- **Context:** The walkthrough must explain the product without implying that a cloud deployment, user pilot, or unmeasured outcome already exists.
+- **Alternatives:** Animate a fictional interface; record a cloud-like mock; use the validated local workbench and its measured results.
+- **Choice:** Build the walkthrough around the real local interface, show New case as the trigger for the full RAG request, and close with “Docker-ready · locally validated.”
+- **Why:** The video should make the core workflow concrete while preserving the same evidence boundaries as the README.
+- **Consequences:** The walkthrough deliberately contains no public URL, customer logo, pilot claim, or estimated time-saved number.
+- **Evidence:** The final 59.7-second H.264 render shows the working incident console, evidence-backed draft, safe escalation, and locked-test metrics.
+- **Revisit when:** A public deployment or real pilot produces new footage and independently observed outcomes.
+
+## 2026-09-16 — Keep walkthrough production offline and captions visually stable
+
+- **Context:** The project key must remain private, the video needs narration and music, and per-word karaoke highlighting distracted from the product interface.
+- **Alternatives:** Use a hosted voice or music service; omit audio; generate both tracks locally and use phrase-level captions without active-word styling.
+- **Choice:** Use offline Kokoro narration, a restrained locally synthesized music bed, burned-in phrase captions with uniform word styling, and a separate WebVTT file.
+- **Why:** This keeps video production reproducible and secret-free while making the captions easier to scan.
+- **Consequences:** The local voice is less expressive than a directed studio recording, and the music is intentionally minimal.
+- **Evidence:** The encoded file is 1920×1080 H.264 with AAC audio, 59.7 seconds long, approximately -19.0 LUFS integrated with a -2.6 dBFS true peak, and contains no active-word caption treatment.
+- **Revisit when:** A human voice recording or commissioned music becomes available.

@@ -6,6 +6,12 @@ Recall is a support copilot for PostgreSQL and pgvector incidents. An operator s
 
 > **Current status:** Docker-ready and validated locally. Recall is not publicly hosted, has not run a user pilot, and makes no measured time-saved claim.
 
+## 60-second walkthrough
+
+[![Play the Recall walkthrough](docs/walkthrough/poster.png)](docs/walkthrough/recall-walkthrough.mp4)
+
+The 59.7-second walkthrough uses the real local workbench and the locked-test measurements reported below. It includes burned-in captions, a separate [WebVTT caption file](docs/walkthrough/recall-walkthrough.vtt), and a readable [narration script](docs/walkthrough/SCRIPT.md).
+
 ## What it does
 
 - Runs each New case through dense and BM25 retrieval, reciprocal-rank fusion, and cross-encoder reranking.
@@ -213,7 +219,7 @@ frontend/    React/Vite incident workbench
 backend/     FastAPI, retrieval, generation, safety gates, and tests
 data/        pinned source manifest and public source extracts
 evaluation/  80 cases, evaluator, report, and raw measurements
-docs/        product boundaries, interface, design, and decision log
+docs/        product boundaries, design, decisions, and walkthrough assets
 deploy/      Caddy ingress and future cloud environment template
 ```
 
