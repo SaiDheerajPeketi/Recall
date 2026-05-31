@@ -8,9 +8,9 @@ Recall is a support workbench for PostgreSQL and pgvector incidents. Give it a c
 
 ## Walkthrough
 
-[![Watch the one-minute walkthrough](docs/walkthrough/poster.png)](docs/walkthrough/recall-walkthrough.mp4)
+[![Watch the one-minute walkthrough](docs/walkthrough/poster.png)](https://youtu.be/wPat25WWYSE)
 
-The walkthrough is 59.7 seconds long and shows the actual local application. A [transcript](docs/walkthrough/SCRIPT.md) and [WebVTT captions](docs/walkthrough/recall-walkthrough.vtt) are included in the repository.
+The walkthrough is 59.7 seconds long and shows the actual local application. A [local copy](docs/walkthrough/recall-walkthrough.mp4), [transcript](docs/walkthrough/SCRIPT.md), and [WebVTT captions](docs/walkthrough/recall-walkthrough.vtt) are included in the repository.
 
 ## How it works
 
