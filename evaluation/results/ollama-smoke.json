@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2026-09-16T09:12:06.892073+00:00",
+    "generated_at": "2026-05-31T09:12:06.892073+00:00",
     "provider": "ollama",
     "model": "qwen3:4b",
     "corpus_collection": "recall_support",

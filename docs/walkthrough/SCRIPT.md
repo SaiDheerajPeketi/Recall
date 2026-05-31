@@ -1,10 +1,10 @@
 # Recall walkthrough script
 
-This is the narration used in the 59.7-second local product walkthrough.
+This is the narration from the 59.7-second product walkthrough.
 
 - **Voice:** Kokoro `af_heart`, generated offline
 - **Timing:** Final voice clips use a 0.85× post-generation tempo adjustment
-- **Direction:** Calm, credible, and conversational; technical terms are read clearly without sounding promotional
+- **Direction:** Calm and conversational, with technical terms read clearly
 - **Captions:** Burned-in phrase captions with uniform word styling, plus a separate WebVTT file
 - **Music:** Restrained locally synthesized pulse beneath the narration
 

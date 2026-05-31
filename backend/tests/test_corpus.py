@@ -17,7 +17,7 @@ def _write_source(tmp_path: Path, content: str, digest: str | None = None) -> Pa
             "title": "Source title",
             "url": "https://example.test/source",
             "license": "Test license",
-            "retrieved_at": "2026-09-16",
+            "retrieved_at": "2026-05-31",
             "path": "source.md",
             "content_sha256": content_hash,
         }

@@ -1,6 +1,6 @@
 # Recall evaluation report
 
-Run date: 2026-09-16  
+Run date: 2026-05-31  
 Corpus: pinned PostgreSQL and pgvector public sources in `data/sources.json`  
 Generator: Gemini 3.5 Flash-Lite  
 Evidence threshold: 0.55, selected on the 20-case development split
