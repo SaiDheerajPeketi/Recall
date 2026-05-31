@@ -51,3 +51,23 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** Some answerable cases may initially escalate until the threshold and corpus improve.
 - **Evidence:** Final evaluation measures escalation precision, recall, F1, and the confusion matrix alongside retrieval quality.
 - **Revisit when:** Development-set tuning or pilot review shows a systematic class of safe cases being rejected.
+
+## 2026-09-16 — Pin short support notes to primary sources
+
+- **Context:** A reproducible demo corpus needs stable content and provenance without redistributing large copies of documentation or depending on live web pages during startup.
+- **Alternatives:** Scrape sources on every run; commit full upstream pages; commit concise support notes with source metadata and hashes.
+- **Choice:** Store original, human-readable support notes derived from PostgreSQL documentation, pgvector documentation, and resolved pgvector issues. Pin each note to its source URL, license context, retrieval date, and SHA-256 hash.
+- **Why:** This keeps the corpus reviewable, starts offline after model download, and makes source drift explicit.
+- **Consequences:** The corpus is deliberately small and must be refreshed manually when upstream behavior changes.
+- **Evidence:** Bootstrap rejects a changed source file when its recorded hash no longer matches.
+- **Revisit when:** Corpus maintenance volume justifies an automated, reviewed ingestion pipeline.
+
+## 2026-09-16 — Version the corpus from verified chunk content
+
+- **Context:** Re-running bootstrap must not create duplicate points, and a changed note must produce an observable new corpus state.
+- **Alternatives:** Use a timestamp; reuse a static version; hash stable chunk identifiers and content.
+- **Choice:** Derive the corpus version from sorted chunk IDs, source hashes, and chunk-text hashes, then rebuild Qdrant only when that value changes.
+- **Why:** The same inputs produce the same version and an actual content change cannot silently reuse the old index.
+- **Consequences:** Any edited note triggers a complete small-corpus rebuild rather than an incremental update.
+- **Evidence:** Unit tests prove deterministic chunks and versions, and the indexer returns `unchanged` on a matching collection.
+- **Revisit when:** The corpus is large enough that incremental, transactional index updates materially reduce maintenance cost.

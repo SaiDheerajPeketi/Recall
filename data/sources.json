@@ -1,0 +1,74 @@
+[
+  {
+    "id": "postgresql-connections",
+    "title": "PostgreSQL: Connections and Authentication",
+    "url": "https://www.postgresql.org/docs/current/runtime-config-connection.html",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/postgresql-connections.md",
+    "content_sha256": "4471ce13a12486f44e1f328908b1a720df2b0ec6340ec6af8dd3a12fec89a95d"
+  },
+  {
+    "id": "postgresql-monitoring",
+    "title": "PostgreSQL: Monitoring Database Activity",
+    "url": "https://www.postgresql.org/docs/current/monitoring-stats.html",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/postgresql-monitoring.md",
+    "content_sha256": "c9a230aa357c5083dedeed27a6e8694570ab00c5041471c32397067aa06c9360"
+  },
+  {
+    "id": "postgresql-vacuum",
+    "title": "PostgreSQL: Routine Vacuuming",
+    "url": "https://www.postgresql.org/docs/current/routine-vacuuming.html",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/postgresql-vacuum.md",
+    "content_sha256": "b6ed938331d24cfa98835e3bd181766c8d96d8718b6b36e340c958d351afa042"
+  },
+  {
+    "id": "postgresql-query-plans",
+    "title": "PostgreSQL: Using EXPLAIN",
+    "url": "https://www.postgresql.org/docs/current/using-explain.html",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/postgresql-query-plans.md",
+    "content_sha256": "54d2d1b9834ddbe473ec18a02c7f9e4f4a4d62becfb60aacfd68e5a14ba864d9"
+  },
+  {
+    "id": "pgvector-indexing",
+    "title": "pgvector indexing documentation",
+    "url": "https://github.com/pgvector/pgvector/blob/v0.8.1/README.md#indexing",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/pgvector-indexing.md",
+    "content_sha256": "9b930f2a1d9fed2102588e526f58a38a222b92c07ac21dd1296b83b46e5fbf46"
+  },
+  {
+    "id": "pgvector-filtering",
+    "title": "pgvector filtering and iterative scans",
+    "url": "https://github.com/pgvector/pgvector/blob/v0.8.1/README.md#filtering",
+    "license": "PostgreSQL License",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/pgvector-filtering.md",
+    "content_sha256": "dba1071c20a88798aca6dbb50fcf567f7b9531c1cc1d2ef72261c39b90fb9ffa"
+  },
+  {
+    "id": "pgvector-issue-734",
+    "title": "How to bypass approximate index for certain query?",
+    "url": "https://github.com/pgvector/pgvector/issues/734",
+    "license": "Public issue under GitHub Terms; support note is original paraphrase",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/pgvector-issue-734.md",
+    "content_sha256": "4e00a70bef772452444da67edc6ea8995d6d9a7d3bf0e4f2d90aa3a8b591b18c"
+  },
+  {
+    "id": "pgvector-issue-995",
+    "title": "IVFFlat memory requirement on empty or small table",
+    "url": "https://github.com/pgvector/pgvector/issues/995",
+    "license": "Public issue under GitHub Terms; support note is original paraphrase",
+    "retrieved_at": "2026-09-16",
+    "path": "source_documents/pgvector-issue-995.md",
+    "content_sha256": "850cd99c7e77871de992a02f5b2a14693a4c9df8ceaf4bd20d57162a2fed2e3d"
+  }
+]

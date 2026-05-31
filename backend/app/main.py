@@ -47,9 +47,15 @@ async def health() -> dict[str, object]:
             response = await client.get(f"{settings.qdrant_url}/readyz")
             if response.is_success:
                 checks["qdrant"] = "ready"
+                collection = await client.get(
+                    f"{settings.qdrant_url}/collections/{settings.qdrant_collection}"
+                )
+                if collection.is_success:
+                    points_count = collection.json().get("result", {}).get("points_count", 0)
+                    if points_count > 0:
+                        checks["corpus"] = "ready"
     except httpx.HTTPError:
         pass
 
     ready = checks["postgres"] == "ready" and checks["qdrant"] == "ready"
     return {"status": "ready" if ready else "degraded", "checks": checks}
-
