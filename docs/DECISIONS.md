@@ -22,3 +22,32 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Evidence:** The web image has no Gemini build argument or environment entry, and the browser calls only `/api`.
 - **Revisit when:** Provider calls move behind a dedicated internal inference service.
 
+## 2026-09-16 — Make New case the real analysis entry point
+
+- **Context:** A support copilot is only useful if an engineer can submit an unseen case; a demo-ticket browser alone would not exercise the product's core behavior.
+- **Alternatives:** Restrict the interface to seeded examples; use a disconnected visual form; send New case through the complete RAG pipeline.
+- **Choice:** Subject, product area, and description from New case are submitted to the same retrieval, reranking, confidence, and generation path used by demo cases.
+- **Why:** This makes the central interaction truthful and testable while retaining safe examples for quick evaluation.
+- **Consequences:** Loading, provider failure, insufficient evidence, and rate-limit states become required product states rather than edge cases.
+- **Evidence:** The public API has one analysis contract for seeded and newly entered cases.
+- **Revisit when:** A ticket-system integration supplies richer structured context or requires a separate ingestion workflow.
+
+## 2026-09-16 — Do not persist submitted ticket text
+
+- **Context:** Support tickets may contain sensitive customer and infrastructure details, while the MVP only needs the text during one request.
+- **Alternatives:** Store all requests for analytics; redact then store; keep the input in memory and store only explicit feedback.
+- **Choice:** Process subject, product area, and description in memory and never write them to PostgreSQL, Qdrant, or application logs.
+- **Why:** It minimizes data exposure without weakening the requested analysis flow.
+- **Consequences:** A user cannot reopen prior private submissions, and evaluation must use committed public or synthetic cases instead of production history.
+- **Evidence:** The database schema contains feedback and evaluation metadata but no ticket-body columns.
+- **Revisit when:** A production retention policy, access controls, deletion workflow, and security review exist.
+
+## 2026-09-16 — Treat escalation as a successful product outcome
+
+- **Context:** Retrieval systems can return weak, irrelevant, or contradictory evidence. A fluent answer is unsafe in those conditions.
+- **Alternatives:** Always produce a best-effort draft; show a warning beside every draft; block the draft and explain the handoff.
+- **Choice:** Unsupported cases return a structured escalation with the reason, missing signals, and available evidence.
+- **Why:** The system should optimize for safe support decisions rather than answer rate.
+- **Consequences:** Some answerable cases may initially escalate until the threshold and corpus improve.
+- **Evidence:** Final evaluation measures escalation precision, recall, F1, and the confusion matrix alongside retrieval quality.
+- **Revisit when:** Development-set tuning or pilot review shows a systematic class of safe cases being rejected.
