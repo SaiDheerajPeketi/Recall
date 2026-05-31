@@ -71,3 +71,23 @@ This log records decisions in the order they were made. Each entry explains the 
 - **Consequences:** Any edited note triggers a complete small-corpus rebuild rather than an incremental update.
 - **Evidence:** Unit tests prove deterministic chunks and versions, and the indexer returns `unchanged` on a matching collection.
 - **Revisit when:** The corpus is large enough that incremental, transactional index updates materially reduce maintenance cost.
+
+## 2026-09-16 — Combine lexical and semantic retrieval before reranking
+
+- **Context:** Database incidents mix exact identifiers and error phrases with broader descriptions of symptoms. Either lexical or semantic retrieval alone can miss one side of that pattern.
+- **Alternatives:** Dense search only; sparse search only; weighted score addition; reciprocal-rank fusion followed by a small cross-encoder.
+- **Choice:** Retrieve 30 dense and 30 BM25 candidates, combine their ranks with reciprocal-rank fusion, rerank the best 20 with `ms-marco-TinyBERT-L-2-v2`, discard obviously irrelevant passages below the development floor, and return at most five passages.
+- **Why:** Rank fusion avoids pretending the dense and sparse raw scores share a calibrated scale, while the small reranker improves ordering without sending corpus data to the generation provider.
+- **Consequences:** The API process keeps three local models available and has a larger cold-start cost.
+- **Evidence:** Unit tests cover fusion and diversity behavior; the evaluation suite will measure precision, recall, and reciprocal rank against dense-only and sparse-only baselines.
+- **Revisit when:** Evaluation shows one retrieval path adds no value, corpus growth requires a different reranker, or latency exceeds the gate.
+
+## 2026-09-16 — Prefer source diversity in the final context
+
+- **Context:** Five high-scoring chunks from one document can look strong while providing little independent corroboration.
+- **Alternatives:** Take the top five verbatim; allow one chunk per source; prefer unique sources and then permit a second passage.
+- **Choice:** Fill the final context with distinct sources first, then allow at most one additional passage per source.
+- **Why:** It exposes the generator and reviewer to broader evidence without discarding useful adjacent detail.
+- **Consequences:** A slightly lower-ranked document can displace a second passage from the leading source.
+- **Evidence:** The selection rule is deterministic and covered by a focused test.
+- **Revisit when:** Claim-level evaluation shows adjacent same-source passages are systematically necessary.

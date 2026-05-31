@@ -49,7 +49,7 @@ services:
         condition: service_started
     volumes:
       - ./data:/app/data:ro
-      - model_cache:/root/.cache/huggingface
+      - model_cache:/root/.cache
     restart: "no"
 
   api:
@@ -74,7 +74,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - model_cache:/root/.cache/huggingface
+      - model_cache:/root/.cache
 
   web:
     build:
@@ -107,7 +107,7 @@ services:
     volumes:
       - ./data:/app/data:ro
       - ./evaluation:/app/evaluation
-      - model_cache:/root/.cache/huggingface
+      - model_cache:/root/.cache
 
 volumes:
   postgres_data:

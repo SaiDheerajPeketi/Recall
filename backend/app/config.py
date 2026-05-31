@@ -15,6 +15,11 @@ class Settings(BaseSettings):
     generation_provider: Literal["gemini", "ollama", "mock"] = "gemini"
     dense_embedding_model: str = "BAAI/bge-small-en-v1.5"
     sparse_embedding_model: str = "Qdrant/bm25"
+    reranker_model: str = "ms-marco-TinyBERT-L-2-v2"
+    retrieval_candidates: int = 30
+    rerank_candidates: int = 20
+    evidence_limit: int = 5
+    minimum_rerank_score: float = 0.01
     gemini_api_key: str = ""
     gemini_model: str = "gemini-2.5-flash-lite"
     ollama_base_url: str = "http://host.docker.internal:11434"
